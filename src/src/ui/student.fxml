@@ -67,12 +67,12 @@
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnupdate" layoutX="410.0" layoutY="390.0" mnemonicParsing="false" onAction="#Update" style="-fx-background-color: orange;" text="UPDATE">
+      <Button fx:id="btnupdate" layoutX="320.0" layoutY="390.0" mnemonicParsing="false" onAction="#Update" style="-fx-background-color: orange;" text="UPDATE">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btndelete" layoutX="602.0" layoutY="390.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: orange;" text="DELETE">
+      <Button fx:id="btndelete" layoutX="474.0" layoutY="390.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: orange;" text="DELETE">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -91,12 +91,17 @@
             <TableColumn fx:id="CAGE" prefWidth="50.0" text="AGE" />
         </columns>
       </TableView>
-      <Button fx:id="btnexit" layoutX="803.0" layoutY="390.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: orange;" text="EXIT">
+      <Button fx:id="btnexit" layoutX="817.0" layoutY="390.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: orange;" text="EXIT">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnclear" layoutX="213.0" layoutY="390.0" mnemonicParsing="false" onAction="#clear" style="-fx-background-color: orange;" text="CLEAR">
+      <Button fx:id="btnclear" layoutX="164.0" layoutY="390.0" mnemonicParsing="false" onAction="#clear" style="-fx-background-color: orange;" text="CLEAR">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnprint" layoutX="626.0" layoutY="390.0" mnemonicParsing="false" onAction="#printdetails" style="-fx-background-color: orange;" text="PRINT REPORT">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>

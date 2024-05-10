@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import database.DatabaseConnection;
@@ -27,11 +29,17 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class Controller implements Initializable{
 	
 	@FXML
-	private Button btnsave,btnexit,btnupdate,btndelete,btnclear;
+	private Button btnsave,btnexit,btnupdate,btndelete,btnclear,btnprint;
 	@FXML
 	private TextField txtid,txtfname,txtlname,txtage;
 	@FXML
@@ -57,7 +65,8 @@ public class Controller implements Initializable{
     int age;
     
     ObservableList<Student> students = FXCollections.observableArrayList();
-    
+
+    ObservableList<Student> student = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       combogender.setItems(FXCollections.observableArrayList("MALE","FEMALE"));
@@ -73,6 +82,8 @@ public class Controller implements Initializable{
 		alert.initOwner(owner);
 		alert.show();
 	}
+    
+   
 	
 	@FXML
     public void save(ActionEvent event) {
@@ -201,6 +212,46 @@ public class Controller implements Initializable{
    		e.printStackTrace();
    	}
       }
+    
+ public void printdetails() {
+	 
+	 try {
+		 //file path for the report
+		 String filepath ="E:\\JAVAPROJECTS\\FXPROJECTS\\MyRegistrationForm\\src"
+		 		+ "\\src\\ui\\reportdemo.jrxml" ;
+		 
+		 //how to set value to parameters in jasper
+		 //for any parameters 
+		 Map<String, Object> parameter = new HashMap<String, Object>();
+		 parameter.put("schoolname","NANA SCHOOLS");
+		 Student std;
+		 
+		for(Integer i =0; i < studenttable.getItems().size();i++) {
+		
+		String id = studenttable.getItems().get(i).getStdid();
+		String fname = studenttable.getItems().get(i).getFname();
+		String lname = studenttable.getItems().get(i).getLname();
+		String gender = studenttable.getItems().get(i).getGender();
+		int age = (studenttable.getItems().get(i).getAge());
+		 std = new Student(id,fname,lname,gender,age);
+          
+		 student.add(std);
+		}
+		// JRBeanCollectionDataSource datasource = new JRBeanCollectionDataSource(student);
+		 JRBeanCollectionDataSource datasource =  new  JRBeanCollectionDataSource (student);
+		 JasperReport report = JasperCompileManager.compileReport(filepath);
+		
+		 JasperPrint print =  JasperFillManager.fillReport(report, parameter,datasource);
+		 
+		JasperExportManager.exportReportToPdfFile(print, "E:\\JAVAPROJECTS\\FXPROJECTS\\MyRegistrationForm\\src"
+		 		+ "\\src\\ui\\reportdemo1.pdf");
+		 
+		
+	 }catch(Exception e) {
+		 e.printStackTrace();
+	 }
+    	
+    }
 
   //clear method
   	 @FXML
