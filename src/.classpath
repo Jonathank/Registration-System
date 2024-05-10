@@ -4,5 +4,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32.jar" sourcepath="C:/Users/USER/Desktop/mysql-connector-j-8.0.32"/>
+	<classpathentry kind="lib" path="E:/mine/libraries/libaries/jasper/jasperreports-6.8.0.jar"/>
+	<classpathentry kind="lib" path="E:/mine/libraries/libaries/jasper/jasperreports-fonts-6.21.2.jar"/>
+	<classpathentry kind="lib" path="E:/mine/libraries/libaries/jasper/jasperreports-xalan-6.21.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
